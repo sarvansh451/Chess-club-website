@@ -1,0 +1,414 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;/* height will be total of contet+border+padding not margin*/
+    font-family:'Courier New', Courier, monospace;
+    color: #fff;
+ }
+ html, body{
+    width:100%;
+    height:100%;
+
+ }
+  #cursor{
+    height:10px;
+    width:10px;
+    background-color: #9ac124;
+     border-radius:  50%;
+     position: fixed;
+     z-index: 99;
+
+  }
+  #cursorblur{
+    height:200px;
+    width:200px;
+    background-color: #435219;
+     border-radius:  50%;
+     position: fixed;
+    filter:blur(60px);
+
+  }
+#nav{
+    height: 145px;
+    width: 100%;
+    display: flex;/* all elements to come in a single line in nav bar*/
+    padding: 0 150px;
+    align-items: center;/* for y axis*/
+    position: fixed;
+    justify-content: flex-start;/* for x axis*/
+    gap: 40px;
+    z-index: 99;
+}
+#nav img{
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0.263)
+}
+#nav h4{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+video{
+    height:100%;
+    width: 100%;
+    object-fit: cover;/*cover ache se*/
+    position: fixed;/*image now does not move with scrolling*/
+   z-index: -1;
+}
+#main{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.37);
+    
+
+}
+
+#page1 h1::before{
+    content: "EAT SLEEP CHESS REPEAT";
+    position:  absolute;/* child where we use absolute . as new position is set by parent that is h1*/
+    color: white;
+    top: -2px;
+    left: -2px;
+   
+    z-index: -1;
+}
+#page1{
+    height: 100vh;/* 100% means parents ka utna guna but we didnt gave height to parent. so we give height in view port(screen ki jitni height)*/
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+#page1 h1{
+    font-size: 80px;
+    font-weight: 900;
+    position: relative;/*is is used to establish a new positioning context for the h1 element. When you set position: relative; on an element, it allows any child elements with position: absolute; to be positioned relative to this parent element.*/
+    z-index: 10;
+
+}
+#page1 h2{
+    font-size: 30px;
+    font-weight: 800;
+
+}
+#page1 h3{
+    font-size: 15px;
+    font-weight: 500;
+    width: 40%;
+
+}
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+
+
+}
+#scroller{
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 10;
+
+}
+#scrollerin{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration:30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+
+#scroller h4{
+    display: inline-block;
+    font-size:100px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-right: 10px;
+    color: transparent;
+    -webkit-text-stroke: 2px #95c119;
+    transition:all linear 0.5s;
+
+}
+#scroller h4:hover{
+    color: #95c119;
+
+}
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+#aboutus{
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+#aboutus img{
+    height: 220px;
+    width: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+#aboutusin{
+    width: 50%;
+    text-align: center;
+
+}
+#aboutusin h3{
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 30px;
+
+
+}
+#aboutusin p{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+
+#cardscontainer{
+    height: 60VH;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 70px;
+}
+.card{
+    height: 80%;
+    width: 25%;
+    border-radius: 20px ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    transform: all ease 0.6s;
+
+}
+#card1{
+ background-image: url(https://www.shutterstock.com/shutterstock/videos/1089634717/thumb/1.jpg?ip=x480);
+}
+#card2{
+  
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKjQKQmBEcpvzMx3j6uus0yJBrRJBMf09gcQ&s);
+} 
+#card3{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH6My2d2XDINJIsLDIe4intgeY5-oBHHW86g&s);
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #95c119;
+    padding-top: 50px;
+    opacity: 0;
+    transition: all ease 0.6s;
+    text-align: center;
+
+}
+.overlay h4{
+    color: black;
+    font-size: 30px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-weight: 800;
+    padding-bottom: 30px;
+
+}
+.overlay p{
+    color: black;
+padding-bottom: 30px;
+font-weight: 600;
+font-size: 15px;
+
+}
+
+.card:hover .overlay{
+    opacity: 1;
+}
+
+.card:hover{
+    transform: rotate3d(-1,1,0,20deg);
+}
+#greendiv{
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(green,#95c119);
+     
+}
+ #greendiv h4{
+    width: 45%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    font-weight: 800;
+
+
+ }
+ #greendiv img{
+    height: 100%;
+    object-fit: cover;
+    width: 10%;
+ }
+ #page3{
+    height: 100vh;
+    width: 90%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+ }
+ #page3>p{
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 45px;
+    padding-left: 200px;
+   
+
+
+    
+ }
+ #page3 img{
+
+    position: relative;
+    height: 50px;
+
+ }
+ #page3 #colon2{
+  
+    top:20%
+ }
+ #page3 #colon1{
+    right :85%;
+    bottom: 20%;
+    
+ }
+ #page4 {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+  }
+  .elem {
+    height: 70%;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+  }
+  
+  .elem h2 {
+    height: 100%;
+    width: 100%;
+    background-color: #95c11e;
+    display: flex;
+    color: #000;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.5s;
+    font-size: 2vw;
+    position: absolute;
+    z-index: 10;
+  }
+  .elem img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all ease 0.5s;
+    scale: 1.1;
+  }
+  .elem:hover h2 {
+    color: #fff;
+    background-color: transparent;
+  }
+  .elem:hover img {
+    scale: 1;
+  }
+  #page4 h1 {
+    font-size: 5.4vw;
+    position: absolute;
+    top: -20%;
+    font-weight: 900;
+    font-family: gilroy;
+    color: #000;
+    -webkit-text-stroke: 2px #fff;
+    
+  }
+  #footer {
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(to left bottom, #119f3a 0%, #a3d421 80%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6.5vw;
+    padding: 0 100px;
+  }
+  #footer > img {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+  }
+  #f1 img {
+    height: 100px;
+  }
+  #f1,
+  #f2,
+  #f3,
+  #f4 {
+    width: fit-content;
+    position: relative;
+    z-index: 99;
+    /* background-color: red; */
+  }
+  #f2 h3 {
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  
+  #f3 h3 {
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  #f4 h4 {
+    font-size: 1vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 8px;
+  }
+
